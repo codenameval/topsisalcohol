@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TOPSIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .bg-4 {
+            background-color: #2f2f2f;
+            color: #ffffff;
+        }
+
+        .container-fluid {
+            padding-top: 50px;
+            padding-bottom: 40px;
+        }
+
+        .no-underline:hover {
+            text-decoration: none;
+            color: #ffa0a0;
+        }
+
+        .putih {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron text-center ">
+        <h1><a class="putih no-underline" href="index.html">TOPSIS CALCULATOR</a></h1>
+        <p>Aplikasi Pemilihan Minuman Beralkohol Terbaik Menggunakan Metode TOPSIS</p>
+    </div>
+
+    <form action="calculate.php" method="post">
+        <div class="container">
+            <div class="row">
+                <h3>Weight Preferensi</h3>
+                <p><b>Silahkan Masukkan Nilai Weight Preferensi Untuk Setiap Criteria!</b></p>
+                <table class="table-striped table-hover table-condensed">
+                    <tr>
+                        <td>Rasa</td>
+                        <td>:</td>
+                        <td><input class="form-control" type="number" name="w_rasa" max="100" min="1" step=".01"
+                                required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Aroma</td>
+                        <td>:</td>
+                        <td><input class="form-control" type="number" name="w_aroma" max="100" min="1" step=".01"
+                                required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kandungan Alkohol</td>
+                        <td>:</td>
+                        <td><input class="form-control" type="number" name="w_kandungan" max="100" min="1" step=".01"
+                                required></td>
+                    </tr>
+                    <tr>
+                        <td>Tekstur</td>
+                        <td>:</td>
+                        <td><input class="form-control" type="number" name="w_tekstur" max="100" min="1" step=".01"
+                                required></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="row">
+                <h3>Penilaian Alternatif</h3>
+                <p>Masukkan Nilai Untuk Alternatif Berdasarkan Kriteria!</p>
+                <table class="table-striped table-hover table-condensed">
+                    <th colspan="5"></th>
+                    <tr>
+                        <th>Alternatif</th>
+                        <th>Rasa</th>
+                        <th>Aroma</th>
+                        <th>Alkohol</th>
+                        <th>Tekstur</th>
+                    </tr>
+                    <tr>
+                        <td>Vodka IceLand</td>
+                        <td><input class="form-control" type="number" name="c1a1" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c2a1" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c3a1" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c4a1" max="100" min="1" step=".01" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Whisky Mansion</td>
+                        <td><input class="form-control" type="number" name="c1a2" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c2a2" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c3a2" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c4a2" max="100" min="1" step=".01" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Anggur Merah</td>
+                        <td><input class="form-control" type="number" name="c1a3" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c2a3" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c3a3" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c4a3" max="100" min="1" step=".01" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Anggur Putih</td>
+                        <td><input class="form-control" type="number" name="c1a4" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c2a4" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c3a4" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c4a4" max="100" min="1" step=".01" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bir Bintang</td>
+                        <td><input class="form-control" type="number" name="c1a5" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c2a5" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c3a5" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c4a5" max="100" min="1" step=".01" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Greensand</td>
+                        <td><input class="form-control" type="number" name="c1a6" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c2a6" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c3a6" max="100" min="1" step=".01" required>
+                        </td>
+                        <td><input class="form-control" type="number" name="c4a6" max="100" min="1" step=".01" required>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="row">
+                <button class="btn btn-danger" type="reset">RESET ALL</button>
+                <button class="btn btn-primary" type="submit">CALCULATE</button>
+            </div>
+        </div>
+    </form>
+    <br><br>
+
+    <footer class="container-fluid bg-4 text-center">
+        <p>Made By Val, Visit me at <a
+                href="https://novalinoreynaldi.000webhostapp.com">www.novalinoreynaldi.000webhostapp.com</a></p>
+    </footer>
+</body>
+
+</html>
